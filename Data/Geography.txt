@@ -1,0 +1,7 @@
+CountryCode|CountryName|Continent
+AU|Australia|Oceania
+CA|Canada|North America
+DE|Germany|Europe
+FR|France|Europe
+GB|United Kingdom|Europe
+US|United States|North America

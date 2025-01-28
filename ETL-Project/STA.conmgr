@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="STA"
+  DTS:DTSID="{12C14CC1-ABB4-45DC-A5D8-325F91F473C5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{12C14CC1-ABB4-45DC-A5D8-325F91F473C5}.\SQLEXPRESS.ETL_STA;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-M610JM08</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuXbc+Ts0g0+U+JfWn/BD7wAAAAACAAAAAAAQZgAAAAEAACAAAABue4kY2UB4zTKFe+dWypsuGB6iVSiH9K2e1Tf1u5EyhQAAAAAOgAAAAAIAACAAAADvtSZvvfkuUm5ypWDXE4sK+dviarHObF8spaTyPt7lC5AAAAC0C6Ax14UUhkl+/PR3/bOtjImEZPYo8yaQAiyMB12TXwOTyxA+RSCyrcJy8w+2pXItjiXLI5En4E/ZGVsQYljmiF8gJzjej60rJfEO2HbzF6EJhEcj6G9pyKuX3CsAz24ZjT+ciRE2+oXBnub9arNw6lf30quggmoJboVxoI3n7/WmLlaupZ2+2X75UFppPDtAAAAA6OYE/O1hOpUBOKHP2D0neaneWzAAAHUHIF/8u42l3pj4p85GEc9hZGi/rCcCxmnW1ld7vXmFdv+XAfOM92Wneg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuXbc+Ts0g0+U+JfWn/BD7wAAAAACAAAAAAAQZgAAAAEAACAAAAC5uuOe9z3UjAD1ml6O1qXv+429V++wqKE7/FanPtQ0igAAAAAOgAAAAAIAACAAAAD168kffMlDZN4dJjQC13C9rHv4quOP9tSNvS3zfdoA0JAAAAAOZIjffbYRZkoi1Zf7bqqk51+5Q0zu/PisEb09aYaB3k/IYyDDoyQnREOcYWYqBcR/hVidAbqpWwmfLecGY/JKDxRJj48acKKcM+oJ8dYh/X36SeyKRllHV452fEpxZYBH+4sa4nFnQOND9rWf1rBZlrydlz+Cw8lu+E+s87ux5SQt/9NR6wXaVSwziQAQi+hAAAAAKrbu0EYJ5bSe5E78SV3xfHDcw84NMdMQuMqWmVder3/J2VljEINKpW1HrCpy4vwXZMRxeBQXuXTNCps9WmsKtA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -1110,7 +1110,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Lookup data.xls;Extended Properties="Excel 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Lookup data.xls;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
