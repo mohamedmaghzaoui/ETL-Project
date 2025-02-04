@@ -1,18 +1,18 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/28/2025 8:49:18 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-M610JM08"
   DTS:CreatorName="LAPTOP-M610JM08\HP"
-  DTS:DTSID="{61553B9B-13AC-4C29-B065-6C1A030C9C73}"
+  DTS:DTSID="{BABBC081-58F1-4715-9FC0-2F40ABB388A1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1036"
-  DTS:ObjectName="STA-CallData"
+  DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{57B1237F-0CB9-4798-A0E5-0235405BE524}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{8475A4F1-4223-4917-914D-20F9BD033B72}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

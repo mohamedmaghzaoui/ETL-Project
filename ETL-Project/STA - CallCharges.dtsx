@@ -11,11 +11,47 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{24D2CC3C-A729-425A-A176-FED835061E15}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{6A6A20BB-989B-4EEE-A9C3-1CCFE1BCD98D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B4644DB0-205C-4C11-A5E4-836B5A1BE56C}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{B4644DB0-205C-4C11-A5E4-836B5A1BE56C}.\SQLEXPRESS.ETL_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B37636BD-3302-4FD1-97CF-C2FF4D294DAE}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{B37636BD-3302-4FD1-97CF-C2FF4D294DAE}.\SQLEXPRESS.ETL_STA 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF0D7D6D-6649-4C64-BDCD-3C3CF6FBE985}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{CF0D7D6D-6649-4C64-BDCD-3C3CF6FBE985}.\SQLEXPRESS.ETL_STA 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
       DTS:CreationName="EXCEL"
@@ -25,7 +61,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Call Charges.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Call Charges.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,20 +73,32 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Call Charges.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Call Charges.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{190F6E4E-33C4-47C7-AEFF-22DAFACB0AE5}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\HP\source\repos\ETL-Project\Data\Call Charges.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT - Loading STA CALL CHARGES"
+      DTS:refId="Package\DFT - Loading STA CallCharges"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
       DTS:DTSID="{6AA8765B-8DD1-4938-9BD2-6842A69D04E8}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT - Loading STA CALL CHARGES"
+      DTS:ObjectName="DFT - Loading STA CallCharges"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -58,7 +106,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls)"
+              refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls)"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
               description="Source Excel"
@@ -99,142 +147,142 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
-                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel]"
+                  refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel]"
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Type ]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Type ]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]"
                       name="Call Type "
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2018)]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2018)]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]"
                       name="Call Charges (2018)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2019)]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2019)]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]"
                       name="Call Charges (2019)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2020)]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2020)]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]"
                       name="Call Charges (2020)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2021)]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2021)]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]"
                       name="Call Charges (2021)"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Type ]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Type ]"
                       dataType="wstr"
                       length="255"
                       name="Call Type " />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2018)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2018)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2018)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2019)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2019)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2019)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2020)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2020)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2020)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2021)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].ExternalColumns[Call Charges (2021)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2021)" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel]"
+                  refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Type ]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Type ]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Type ]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Type ]"
                       name="Call Type " />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2018)]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2018)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2018)]"
                       name="Call Charges (2018)" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2019)]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2019)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2019)]"
                       name="Call Charges (2019)" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2020)]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2020)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2020)]"
                       name="Call Charges (2020)" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2021)]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2021)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[Call Charges (2021)]"
                       name="Call Charges (2021)" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -243,7 +291,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA"
+              refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
@@ -258,7 +306,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[CallCharges]</property>
+                  name="OpenRowset">[dbo].[CallCharges]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -300,80 +348,80 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Connections[OleDbConnection]"
-                  connectionManagerID="{12C14CC1-ABB4-45DC-A5D8-325F91F473C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[STA]"
+                  refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Type ]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Type ]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Call Type "
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Type ]" />
                     <inputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2018)]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Call Charges (2018)"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2018)]" />
                     <inputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2019)]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Call Charges (2019)"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2019)]" />
                     <inputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2020)]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Call Charges (2020)"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2020)]" />
                     <inputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2021)]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Call Charges (2021)"
-                      externalMetadataColumnId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
+                      lineageId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel].Columns[Call Charges (2021)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
                       dataType="wstr"
                       length="255"
                       name="Call Type " />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2018)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2019)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2020)" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
                       dataType="wstr"
                       length="255"
                       name="Call Charges (2021)" />
@@ -382,22 +430,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -408,45 +456,45 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT - Loading STA CALL CHARGES.Paths[Sortie de source Excel]"
-              endId="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT - Loading STA CallCharges.Paths[Sortie de source Excel]"
+              endId="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source Excel"
-              startId="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel]" />
+              startId="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls).Outputs[Sortie de source Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\SQL - Empty STA CALL CHARGES"
+      DTS:refId="Package\SQL - Empty STA CallCharges"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{9c0fcc1a-b301-4e2c-b1f1-a46ed34baf1f}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="SQL - Empty STA CALL CHARGES"
+      DTS:ObjectName="SQL - Empty STA CallCharges"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{12C14CC1-ABB4-45DC-A5D8-325F91F473C5}"
+          SQLTask:Connection="{B37636BD-3302-4FD1-97CF-C2FF4D294DAE}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE CallCharges" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\SQL - Remove Empty Lines  STA CALL CHARGES 1"
+      DTS:refId="Package\SQL - Remove Empty Lines  STA CallCharges"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{50ca159b-5fb6-489f-887a-1b03a09245e0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="SQL - Remove Empty Lines  STA CALL CHARGES 1"
+      DTS:ObjectName="SQL - Remove Empty Lines  STA CallCharges"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{12C14CC1-ABB4-45DC-A5D8-325F91F473C5}"
+          SQLTask:Connection="{CF0D7D6D-6649-4C64-BDCD-3C3CF6FBE985}"
           SQLTask:SqlStatementSource="DELETE FROM CallCharges&#xA;WHERE &quot;Call Type&quot; IS NULL &#xA;   " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -456,18 +504,18 @@
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{61C96B71-8A3D-4024-ADC0-5EB2E0CF335A}"
-      DTS:From="Package\SQL - Empty STA CALL CHARGES"
+      DTS:From="Package\SQL - Empty STA CallCharges"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT - Loading STA CALL CHARGES" />
+      DTS:To="Package\DFT - Loading STA CallCharges" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
       DTS:CreationName=""
       DTS:DTSID="{583FC84A-8D3E-4D72-9914-F3FFC45105BE}"
-      DTS:From="Package\DFT - Loading STA CALL CHARGES"
+      DTS:From="Package\DFT - Loading STA CallCharges"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
-      DTS:To="Package\SQL - Remove Empty Lines  STA CALL CHARGES 1" />
+      DTS:To="Package\SQL - Remove Empty Lines  STA CallCharges" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -482,39 +530,43 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="250.4,41.6"
-          Id="Package\DFT - Loading STA CALL CHARGES"
+          Size="228,41.6"
+          Id="Package\DFT - Loading STA CallCharges"
           TopLeft="118.333326867885,257.399998210073" />
         <NodeLayout
-          Size="244,41.6"
-          Id="Package\SQL - Empty STA CALL CHARGES"
+          Size="220.8,41.6"
+          Id="Package\SQL - Empty STA CallCharges"
           TopLeft="135.833325911728,63.466666931841" />
+        <NodeLayout
+          Size="292.8,41.6"
+          Id="Package\SQL - Remove Empty Lines  STA CallCharges"
+          TopLeft="122.499993306895,346.866664961113" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="257.833325911728,105.066666931841">
+          TopLeft="246.233325911728,105.066666931841">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.2999990438423,152.333331278232"
+              EndConnector="-13.899999043843,152.333331278232"
               Start="0,0"
-              End="-14.2999990438423,144.833331278232">
+              End="-13.899999043843,144.833331278232">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.1666656391158" />
+                    End="0,72.166665639116" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,72.1666656391158"
-                    Point2="0,76.1666656391158"
-                    Point3="-4,76.1666656391158" />
+                    Point1="0,72.166665639116"
+                    Point2="0,76.166665639116"
+                    Point3="-4,76.166665639116" />
                   <mssgle:LineSegment
-                    End="-10.2999990438423,76.1666656391158" />
+                    End="-9.899999043843,76.166665639116" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.2999990438423,76.1666656391158"
-                    Point2="-14.2999990438423,76.1666656391158"
-                    Point3="-14.2999990438423,80.1666656391158" />
+                    Point1="-9.899999043843,76.166665639116"
+                    Point2="-13.899999043843,76.166665639116"
+                    Point3="-13.899999043843,80.166665639116" />
                   <mssgle:LineSegment
-                    End="-14.2999990438423,144.833331278232" />
+                    End="-13.899999043843,144.833331278232" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -523,36 +575,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="324,41.6"
-          Id="Package\SQL - Remove Empty Lines  STA CALL CHARGES 1"
-          TopLeft="122.499993306895,346.866664961113" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="243.533326867885,298.999998210073">
+          TopLeft="232.333326867885,298.999998210073">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.9666664390101,47.8666667510404"
+              EndConnector="36.56666643901,47.8666667510399"
               Start="0,0"
-              End="40.9666664390101,40.3666667510404">
+              End="36.56666643901,40.3666667510399">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9333333755202" />
+                    End="0,19.93333337552" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.9333333755202"
-                    Point2="0,23.9333333755202"
-                    Point3="4,23.9333333755202" />
+                    Point1="0,19.93333337552"
+                    Point2="0,23.93333337552"
+                    Point3="4,23.93333337552" />
                   <mssgle:LineSegment
-                    End="36.9666664390101,23.9333333755202" />
+                    End="32.56666643901,23.93333337552" />
                   <mssgle:CubicBezierSegment
-                    Point1="36.9666664390101,23.9333333755202"
-                    Point2="40.9666664390101,23.9333333755202"
-                    Point3="40.9666664390101,27.9333333755202" />
+                    Point1="32.56666643901,23.93333337552"
+                    Point2="36.56666643901,23.93333337552"
+                    Point3="36.56666643901,27.93333337552" />
                   <mssgle:LineSegment
-                    End="40.9666664390101,40.3666667510404" />
+                    End="36.56666643901,40.3666667510399" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -565,20 +613,20 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT - Loading STA CALL CHARGES">
+    design-time-name="Package\DFT - Loading STA CallCharges">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="224.8,41.6"
-          Id="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls)"
-          TopLeft="159.999991257986,80.5999994395177" />
-        <NodeLayout
           Size="234.4,41.6"
-          Id="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA"
+          Id="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA"
           TopLeft="151.666658379966,291.199997975032" />
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls)"
+          TopLeft="159.999991257986,80.5999994395177" />
         <EdgeLayout
-          Id="Package\DFT - Loading STA CALL CHARGES.Paths[Sortie de source Excel]"
+          Id="Package\DFT - Loading STA CallCharges.Paths[Sortie de source Excel]"
           TopLeft="270.633324818976,122.199999439518">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -603,7 +651,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Loading STA CALL CHARGES\EF_SRC CALL CHARGES (xls)">
+    design-time-name="Package\DFT - Loading STA CallCharges\EF_SRC CALL CHARGES (xls)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -616,7 +664,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Loading STA CALL CHARGES\OLE_DST - STA LOOK UP DATA">
+    design-time-name="Package\DFT - Loading STA CallCharges\OLE_DST - STA LOOK UP DATA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -2,28 +2,33 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ETL-Project</Name>
-    <LastWriteTime>2025-01-28T11:47:49.4588384Z</LastWriteTime>
+    <LastWriteTime>2025-02-04T14:48:51.1487657Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>STA - US STATE.dtsx</Name>
-      <LastWriteTime>2025-01-28T11:03:53.2459909Z</LastWriteTime>
+      <Name>STA - CallData.dtsx</Name>
+      <LastWriteTime>2025-02-04T14:21:44.250355Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>STA - CALL CHARGES.dtsx</Name>
-      <LastWriteTime>2025-01-28T11:45:47.5385795Z</LastWriteTime>
+      <Name>STA - UsStates.dtsx</Name>
+      <LastWriteTime>2025-02-04T14:41:17.7217638Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>STA - CallType.dtsx</Name>
-      <LastWriteTime>2025-01-28T11:45:47.5017128Z</LastWriteTime>
+      <Name>STA - Employees.dtsx</Name>
+      <LastWriteTime>2025-02-04T14:48:51.1202458Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>STA - EMPLOYEES.dtsx</Name>
-      <LastWriteTime>2025-01-28T11:47:49.420328Z</LastWriteTime>
+      <Name>STA - CallCharges.dtsx</Name>
+      <LastWriteTime>2025-02-04T14:33:22.9795195Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STA - CallTypes.dtsx</Name>
+      <LastWriteTime>2025-02-04T14:48:51.0585364Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA - US STATE"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{29D53C21-B4EF-4441-B697-2A4BD5C89361}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{254C54A2-F8C7-4F48-9EBF-65A21ED86ACF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,6 +41,30 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{035BCFD7-CADA-4242-9EDA-1A115600ADD8}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-STA - US STATE-{035BCFD7-CADA-4242-9EDA-1A115600ADD8}.\SQLEXPRESS.ETL_STA 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BE7204B5-3DE2-4C0A-9DC4-BE45571134CF}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-STA - US STATE-{BE7204B5-3DE2-4C0A-9DC4-BE45571134CF}.\SQLEXPRESS.ETL_STA 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
       DTS:CreationName="EXCEL"
       DTS:DTSID="{DF551D5F-BE2A-4D1E-B958-38E80F5B2E9D}"
@@ -50,6 +74,18 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\US States.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{634DC53A-25F2-4A21-AD69-67A97B79E86F}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\HP\source\repos\ETL-Project\Data\US States.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -112,8 +148,8 @@
               <connections>
                 <connection
                   refId="Package\DFT - Loading STA US STATE\EF_SRC US STATE (xls).Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
-                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -228,7 +264,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[UsState]</property>
+                  name="OpenRowset">[UsStates]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -271,8 +307,8 @@
               <connections>
                 <connection
                   refId="Package\DFT - Loading STA US STATE\OLE_DST - STA US STATE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 1]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA 2]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -311,12 +347,12 @@
                     <externalMetadataColumn
                       refId="Package\DFT - Loading STA US STATE\OLE_DST - STA US STATE.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCD]"
                       dataType="wstr"
-                      length="50"
+                      length="255"
                       name="StateCD" />
                     <externalMetadataColumn
                       refId="Package\DFT - Loading STA US STATE\OLE_DST - STA US STATE.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
                       dataType="wstr"
-                      length="50"
+                      length="255"
                       name="Name" />
                     <externalMetadataColumn
                       refId="Package\DFT - Loading STA US STATE\OLE_DST - STA US STATE.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
@@ -375,8 +411,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A1010C5D-060A-426A-931A-7E1A0D519E76}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE UsState" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{BE7204B5-3DE2-4C0A-9DC4-BE45571134CF}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE UsStates" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -453,13 +489,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\DFT - Loading STA US STATE\EF_SRC US STATE (xls)"
-          TopLeft="150.833325092164,71.0666661724779" />
-        <NodeLayout
           Size="208.8,41.6"
           Id="Package\DFT - Loading STA US STATE\OLE_DST - STA US STATE"
           TopLeft="193.333322770066,155.133332254556" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\DFT - Loading STA US STATE\EF_SRC US STATE (xls)"
+          TopLeft="150.833325092164,71.0666661724779" />
         <EdgeLayout
           Id="Package\DFT - Loading STA US STATE.Paths[Sortie de source Excel]"
           TopLeft="248.433325092164,112.666666172478">

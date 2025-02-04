@@ -1,68 +1,56 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/28/2025 12:36:40 PM"
+  DTS:CreationDate="2/4/2025 3:42:24 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="RAGNAR"
-  DTS:CreatorName="RAGNAR\sassi"
-  DTS:DTSID="{83620DC5-24A8-4531-BD6A-745D97959FBD}"
+  DTS:CreatorComputerName="LAPTOP-M610JM08"
+  DTS:CreatorName="LAPTOP-M610JM08\HP"
+  DTS:DTSID="{B52CA812-0CF9-4012-B2F1-8879EA22280C}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1036"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{FF3C4EBB-1EEA-4DEA-A8C0-549691B251FF}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{B061C8CA-ACD1-4E23-9078-B4DC06C5452A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6C8007AF-9056-44CF-8274-31417657FAAD}"
+      DTS:DTSID="{DC70534B-9C54-49A4-89EE-C0CE7416C14A}"
       DTS:ObjectName=".\SQLEXPRESS.ETL_STA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{6C8007AF-9056-44CF-8274-31417657FAAD}.\SQLEXPRESS.ETL_STA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{DC70534B-9C54-49A4-89EE-C0CE7416C14A}.\SQLEXPRESS.ETL_STA;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{CC50DC9D-0279-4E55-8754-6CBFBCEDDDE9}"
+      DTS:DTSID="{72BCA52A-0011-49B3-8E6B-6CD2D90BA572}"
       DTS:ObjectName="Gestionnaire de connexions Excel">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\sassi\Desktop\ETL-Project\Data\Lookup data.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{40BEB59F-EC59-4F03-AD9A-FB44361A4D70}"
-      DTS:ObjectName="Gestionnaire de connexions Excel 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\HP\source\repos\ETL-Project\Data\Lookup data.xls;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=D:\Downloads\Data\Lookup data.xls;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Tâche de flux de données"
+      DTS:refId="Package\DFT - Loading STA CallTypes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{B0B93AF4-CF75-4C45-9B22-85EF55D80BB1}"
+      DTS:DTSID="{0d48dd17-8cf7-4c09-a854-10d65921c831}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tâche de flux de données"
+      DTS:ObjectName="DFT - Loading STA CallTypes"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -70,7 +58,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Tâche de flux de données\Destination OLE DB"
+              refId="Package\DFT - Loading STA CallTypes\Destination OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
@@ -85,7 +73,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[CallType]</property>
+                  name="OpenRowset">[CallTypes]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -127,7 +115,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Connections[OleDbConnection]"
+                  refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -135,34 +123,34 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CallTypeID]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CallTypeID]"
                       cachedDataType="r8"
                       cachedName="CallTypeID"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeID]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeID]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CallTypeLabel]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[CallTypeLabel]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CallTypeLabel"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeLabel]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeLabel]" />
+                      externalMetadataColumnId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeLabel]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeLabel]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
                       dataType="r8"
                       name="CallTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeLabel]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeLabel]"
                       dataType="wstr"
                       length="255"
                       name="CallTypeLabel" />
@@ -171,22 +159,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -195,11 +183,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\Source Excel"
+              refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls)"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
               description="Source Excel"
-              name="Source Excel"
+              name="EF_SRC Lookup data (xls)"
               usesDispositions="true"
               version="1">
               <properties>
@@ -236,76 +224,76 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\Source Excel.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+                  refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]"
+                  refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel]"
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeID]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeID]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CallTypeID]"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeID]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[CallTypeID]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeID]"
                       name="CallTypeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeLabel]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeLabel]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CallTypeLabel]"
+                      externalMetadataColumnId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[CallTypeLabel]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].Columns[CallTypeLabel]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[CallTypeLabel]"
                       name="CallTypeLabel"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CallTypeID]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[CallTypeID]"
                       dataType="r8"
                       name="CallTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel].ExternalColumns[CallTypeLabel]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[CallTypeLabel]"
                       dataType="wstr"
                       length="255"
                       name="CallTypeLabel" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel]"
+                  refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CallTypeID]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[CallTypeID]"
                       dataType="r8"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CallTypeID]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[CallTypeID]"
                       name="CallTypeID" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CallTypeLabel]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[CallTypeLabel]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[CallTypeLabel]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[CallTypeLabel]"
                       name="CallTypeLabel" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -316,15 +304,42 @@
           </components>
           <paths>
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT - Loading STA CallTypes.Paths[Sortie de source Excel]"
+              endId="Package\DFT - Loading STA CallTypes\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source Excel"
-              startId="Package\Tâche de flux de données\Source Excel.Outputs[Sortie de source Excel]" />
+              startId="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Empty STA CallTypes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{f8935c7c-2809-47b2-a6c1-bfc992b07670}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Empty STA CallTypes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DC70534B-9C54-49A4-89EE-C0CE7416C14A}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE CallTypes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{1509eaa1-2f3f-4b71-99f3-d70cd130b713}"
+      DTS:From="Package\SQL - Empty STA CallTypes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT - Loading STA CallTypes" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
 <!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
@@ -336,53 +351,79 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Tâche de flux de données"
-          TopLeft="174.16665715062,52.8666662990385" />
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\Tâche de flux de données">
-    <LayoutInfo>
-      <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Tâche de flux de données\Source Excel"
-          TopLeft="222.999996677041,132.999998018146" />
+          Size="216.8,41.6"
+          Id="Package\DFT - Loading STA CallTypes"
+          TopLeft="60,145.599998698235" />
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
-          TopLeft="222.999996677041,233.999996513128" />
+          Size="209.6,41.6"
+          Id="Package\SQL - Empty STA CallTypes"
+          TopLeft="60.0000000000002,60" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source Excel]"
-          TopLeft="292.999996677041,174.599998018146">
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="166.6,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.6,59.3999984949828"
+              EndConnector="0,43.9999986982346"
               Start="0,0"
-              End="15.6,51.8999984949828">
+              End="0,36.4999986982346">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6999992474914" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.6999992474914"
-                    Point2="0,29.6999992474914"
-                    Point3="4,29.6999992474914" />
+                    End="0,36.4999986982346" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Loading STA CallTypes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls)"
+          TopLeft="222.499987843137,135.199999059836" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT - Loading STA CallTypes\Destination OLE DB"
+          TopLeft="254.166652779613,234.866665395035" />
+        <EdgeLayout
+          Id="Package\DFT - Loading STA CallTypes.Paths[Sortie de source Excel]"
+          TopLeft="323.299987843137,176.799999059836">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.4666649364759,58.0666663351988"
+              Start="0,0"
+              End="16.4666649364759,50.5666663351988">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="11.6,29.6999992474914" />
+                    End="0,25.0333331675994" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.6,29.6999992474914"
-                    Point2="15.6,29.6999992474914"
-                    Point3="15.6,33.6999992474914" />
+                    Point1="0,25.0333331675994"
+                    Point2="0,29.0333331675994"
+                    Point3="4,29.0333331675994" />
                   <mssgle:LineSegment
-                    End="15.6,51.8999984949828" />
+                    End="12.4666649364759,29.0333331675994" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.4666649364759,29.0333331675994"
+                    Point2="16.4666649364759,29.0333331675994"
+                    Point3="16.4666649364759,33.0333331675994" />
+                  <mssgle:LineSegment
+                    End="16.4666649364759,50.5666663351988" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -395,7 +436,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    design-time-name="Package\DFT - Loading STA CallTypes\EF_SRC Lookup data (xls)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -408,7 +449,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Source Excel">
+    design-time-name="Package\DFT - Loading STA CallTypes\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
