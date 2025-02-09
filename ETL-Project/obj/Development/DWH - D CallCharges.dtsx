@@ -1,0 +1,1198 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/9/2025 1:17:11 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-M610JM08"
+  DTS:CreatorName="LAPTOP-M610JM08\HP"
+  DTS:DTSID="{621D4E77-3DA9-469D-9739-EFF7624D463F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DWH - D CallCharges"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{631CAF7D-DFD7-44D4-A3E0-C1F9AEC33C0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BB1CD3E8-AF6A-48E7-9580-BF5A1CF3620B}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DWH - D CallCharges-{BB1CD3E8-AF6A-48E7-9580-BF5A1CF3620B}.\SQLEXPRESS.ETL_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Loading D_CallTypes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{802CC9E1-7F1A-4B94-983B-79623B2958A4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Loading D_CallTypes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="CMD - UPDATE CallCharges"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[CallCharges]
+SET 
+    [CallTypeID] = ?,
+    [Year] = ?,
+    [Rate] = ?
+WHERE [CallType] = ?;
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Connections[OleDbConnection]"
+                  connectionManagerID="{12BB52F9-1016-4506-994B-C179ECDE011C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ETL_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].Columns[CallTypeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallTypeID"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].Columns[Rate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Rate"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Loading D_CallTypes\LKP"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CallCharges]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CallCharges]) [refTable]
+where [refTable].[CallType] = ? and [refTable].[CallTypeID] = ? and [refTable].[Year] = ? and [refTable].[Rate] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CallChargeKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CallType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CallTypeID" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Year" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Rate" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]};#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]};#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]};#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Loading D_CallTypes\LKP.Connections[OleDbConnection]"
+                  connectionManagerID="{12BB52F9-1016-4506-994B-C179ECDE011C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ETL_DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CallType</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche].Columns[CallTypeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallTypeID"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CallTypeID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Year"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Year</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche].Columns[Rate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Rate"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Rate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - Exist ?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CallCharges]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CallCharges]) [refTable]
+where [refTable].[CallType] = ? and [refTable].[Year] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CallChargeKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CallType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CallTypeID" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Year" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Rate" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]};#{Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Connections[OleDbConnection]"
+                  connectionManagerID="{12BB52F9-1016-4506-994B-C179ECDE011C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ETL_DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Year"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Year</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CallType</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - DWH CallCharges"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[CallCharges]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Connections[OleDbConnection]"
+                  connectionManagerID="{12BB52F9-1016-4506-994B-C179ECDE011C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ETL_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[CallType]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].Columns[CallTypeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallTypeID"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Year]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].Columns[Rate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Rate"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Rate]"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[CallChargeKey]"
+                      dataType="i4"
+                      name="CallChargeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CallType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CallTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Rate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - ODS CallCharges"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[CallCharges]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[CallType]"
+                      length="50"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallType]"
+                      name="CallType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[CallTypeID]"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[CallTypeID]"
+                      name="CallTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[Year]"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[Rate]"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].Columns[Rate]"
+                      name="Rate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CallType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[CallTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CallTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB].ExternalColumns[Rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Rate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[CallType]"
+                      name="CallType" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTypeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTypeID]"
+                      name="CallTypeID" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[Rate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[Rate]"
+                      name="Rate" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DFT - Loading D_CallTypes\LKP.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche sans correspondance1]"
+              endId="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT - Loading D_CallTypes\LKP.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DFT - Loading D_CallTypes.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Loading D_CallTypes\LKP - Exist ?.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\DFT - Loading D_CallTypes"
+          TopLeft="264.166652233237,74.5333328150379" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Loading D_CallTypes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges"
+          TopLeft="307.499983198941,81.4666661001577" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\DFT - Loading D_CallTypes\LKP - Exist ?"
+          TopLeft="319.999982515972,234.866665033433" />
+        <NodeLayout
+          Size="98.4,41.6"
+          Id="Package\DFT - Loading D_CallTypes\LKP"
+          TopLeft="611.666633246675,236.599998354713" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges"
+          TopLeft="309.166649774545,417.733330428468" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\DFT - Loading D_CallTypes\CMD - UPDATE CallCharges"
+          TopLeft="610.833299958873,415.133330446548" />
+        <EdgeLayout
+          Id="Package\DFT - Loading D_CallTypes.Paths[Sortie de source OLE DB]"
+          TopLeft="416.699983198941,123.066666100158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.5000006829695,111.799998933276"
+              Start="0,0"
+              End="-27.5000006829695,104.299998933276">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.8999994666378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.8999994666378"
+                    Point2="0,55.8999994666378"
+                    Point3="-4,55.8999994666378" />
+                  <mssgle:LineSegment
+                    End="-23.5000006829695,55.8999994666378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.5000006829695,55.8999994666378"
+                    Point2="-27.5000006829695,55.8999994666378"
+                    Point3="-27.5000006829695,59.8999994666378" />
+                  <mssgle:LineSegment
+                    End="-27.5000006829695,104.299998933276" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="389.199982515972,276.466665033433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.9666672585735,141.266665395035"
+              Start="0,0"
+              End="29.9666672585735,133.766665395035">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.6333326975173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.6333326975173"
+                    Point2="0,70.6333326975173"
+                    Point3="4,70.6333326975173" />
+                  <mssgle:LineSegment
+                    End="25.9666672585735,70.6333326975173" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.9666672585735,70.6333326975173"
+                    Point2="29.9666672585735,70.6333326975173"
+                    Point3="29.9666672585735,74.6333326975173" />
+                  <mssgle:LineSegment
+                    End="29.9666672585735,133.766665395035" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.5186780894633,75.6333326975173,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="660.866633246675,278.199998354713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.7666667121978,136.933332091835"
+              Start="0,0"
+              End="56.7666667121978,129.433332091835">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.4666660459175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.4666660459175"
+                    Point2="0,68.4666660459175"
+                    Point3="4,68.4666660459175" />
+                  <mssgle:LineSegment
+                    End="52.7666667121978,68.4666660459175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.7666667121978,68.4666660459175"
+                    Point2="56.7666667121978,68.4666660459175"
+                    Point3="56.7666667121978,72.4666660459175" />
+                  <mssgle:LineSegment
+                    End="56.7666667121978,129.433332091835" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.1186783626511,73.4666660459175,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Loading D_CallTypes.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="458.399982515972,256.533331694073">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.266650730703,0"
+              Start="0,0"
+              End="145.766650730703,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="145.766650730703,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.7936863533983,5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Loading D_CallTypes\OLE_SRC - ODS CallCharges">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Loading D_CallTypes\LKP - Exist ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CallCharges]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Loading D_CallTypes\LKP">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CallCharges]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Loading D_CallTypes\OLE_DST - DWH CallCharges">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

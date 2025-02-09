@@ -1,0 +1,2761 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/7/2025 12:01:20 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-M610JM08"
+  DTS:CreatorName="LAPTOP-M610JM08\HP"
+  DTS:DTSID="{A5146010-2DE0-4589-BC7D-3F80AF147DCB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ODS - CallData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{BEAD201A-5244-4C3A-BA0E-18916CA3F22A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FFE9EFCE-5950-444D-9C6B-B61C49305E05}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_ADM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-ODS - CallData-{FFE9EFCE-5950-444D-9C6B-B61C49305E05}.\SQLEXPRESS.ETL_ADM;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{23578C33-6D1F-4BD0-9F9B-20E23AAC21BE}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-ODS - CallData-{23578C33-6D1F-4BD0-9F9B-20E23AAC21BE}.\SQLEXPRESS.ETL_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D4B107FC-A8FD-43BA-8862-85CCF6FFF545}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-ODS - CallData-{D4B107FC-A8FD-43BA-8862-85CCF6FFF545}.\SQLEXPRESS.ETL_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ODS - Loading CallData"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{AE8A640B-E051-4A9B-88A8-727A3D8F278E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ODS - Loading CallData"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ODS - Loading CallData\All_Reject"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="All_Reject"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallTimestamp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Type"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmployeeID"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[CallDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallDuration"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WaitTime"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[CallDuration_Int]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration_Int"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données].Columns[CallDuration_Int]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration_Int]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallTimestamp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Type"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmployeeID"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[CallDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallDuration"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WaitTime"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallTimestamp]"
+                      name="CallTimestamp" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[Call Type]"
+                      name="Call Type" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      name="CallDuration" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      name="WaitTime" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      name="CallAbandoned" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration_Int]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[CallDuration_Int]"
+                      name="CallDuration_Int" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]"
+                      name="RejectDate" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]"
+                      name="RejectStep" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]"
+                      name="RejectMessage" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]"
+                      name="RejectColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DCNV CallDuration to INT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV CallDuration to INT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Inputs[Entrée de conversion de données].Columns[CallDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallDuration"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données].Columns[CallDuration_Int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données].Columns[CallDuration_Int]"
+                      name="CallDuration_Int"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DCNV WaitTime to INT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV WaitTime to INT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Inputs[Entrée de conversion de données].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WaitTime"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données].Columns[WaitTime_Int]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données].Columns[WaitTime_Int]"
+                      name="WaitTime_Int"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DCNV_Resizing"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV_Resizing"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Type"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmployeeID"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Year"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie de colonne dérivée].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données].Columns[SLAStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SLAStatus"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie de colonne dérivée].Columns[SLAStatus]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallType_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallType_R]"
+                      name="CallType_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[EmployeeID_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[EmployeeID_R]"
+                      name="EmployeeID_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallAbandoned_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallAbandoned_R]"
+                      name="CallAbandoned_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[Year_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[Year_R]"
+                      name="Year_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\DER_Add "Year".Outputs[Sortie de colonne dérivée].Columns[Year]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[SLAStatus_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[SLAStatus_R]"
+                      name="SLAStatus_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\ODS - Loading CallData\DER_Add "SLA_Status".Outputs[Sortie de colonne dérivée].Columns[SLAStatus]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER Reject_Details (CallDuration)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Inputs[Entrée de colonne dérivée].Columns[CallDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallDuration"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectDate]"
+                      name="RejectDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectStep]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectStep]"
+                      name="RejectStep"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)(@[System::PackageName] + " /" + @[System::TaskName])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)(@[System::PackageName] + " /" + @[System::TaskName])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]"
+                      name="RejectMessage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)("CallDuration " + #{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]} + "is not an integer")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)("CallDuration " + CallDuration + "is not an integer")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]"
+                      name="RejectColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)("CallDuration")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)("CallDuration")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER Reject_Details (WaitTime)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Inputs[Entrée de colonne dérivée].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WaitTime"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectDate]"
+                      name="RejectDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectStep]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectStep]"
+                      name="RejectStep"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)(@[System::PackageName] + " /" + @[System::TaskName])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)(@[System::PackageName] + " /" + @[System::TaskName])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]"
+                      name="RejectMessage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)("WaitTime " + #{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]} + "is not an integer")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)("WaitTime " + WaitTime + "is not an integer")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]"
+                      name="RejectColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,255)("WaitTime")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,255)("WaitTime")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER_Add &quot;Date&quot;"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Inputs[Entrée de colonne dérivée].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée].Columns[Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_DBDATE)#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)CallTimestamp</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER_Add &quot;SLA_Status&quot;"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Inputs[Entrée de colonne dérivée].Columns[WaitTime_Int]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime_Int"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données].Columns[WaitTime_Int]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie de colonne dérivée].Columns[SLAStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie de colonne dérivée].Columns[SLAStatus]"
+                      name="SLAStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données].Columns[WaitTime_Int]} &lt; 35 ? (DT_STR,100,1252)"Within SLA" : (DT_STR,100,1252)"Outside SLA"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">WaitTime_Int &lt; 35 ? (DT_STR,100,1252)"Within SLA" : (DT_STR,100,1252)"Outside SLA"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER_Add &quot;Time&quot;"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Inputs[Entrée de colonne dérivée].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie de colonne dérivée].Columns[Time]"
+                      dataType="dbTime"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie de colonne dérivée].Columns[Time]"
+                      name="Time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_DBTIME)(DT_DBTIMESTAMP)#{Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIME)(DT_DBTIMESTAMP)CallTimestamp</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER_Add &quot;Year&quot;"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Inputs[Entrée de colonne dérivée].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée].Columns[Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie de colonne dérivée].Columns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie de colonne dérivée].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_STR,100,1252)[DATEPART]("Year",#{Package\ODS - Loading CallData\DER_Add "Date".Outputs[Sortie de colonne dérivée].Columns[Date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,100,1252)DATEPART("Year",Date)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[TechnicalRejects]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ODS - Loading CallData\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      name="RejectDate" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectStep" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectMessage" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\OLE_DST ODS CallData"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST ODS CallData"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[CallData]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[Time]"
+                      cachedDataType="dbTime"
+                      cachedName="Time"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Time]"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie de colonne dérivée].Columns[Time]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Date]"
+                      lineageId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[Year_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Year_R"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Year]"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[Year_R]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[CallType_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType_R"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallType]"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallType_R]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[EmployeeID_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="EmployeeID_R"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[EmployeeID_R]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[CallDuration_Int]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration_Int"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
+                      lineageId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données].Columns[CallDuration_Int]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[WaitTime_Int]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime_Int"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
+                      lineageId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données].Columns[WaitTime_Int]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[CallAbandoned_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallAbandoned_R"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[CallAbandoned_R]" />
+                    <inputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].Columns[SLAStatus_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SLAStatus_R"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[SLAStatus]"
+                      lineageId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données].Columns[SLAStatus_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Time]"
+                      dataType="dbTime2"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CallType" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
+                      dataType="i4"
+                      name="CallDuration" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
+                      dataType="i4"
+                      name="WaitTime" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CallAbandoned" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[SLAStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SLAStatus" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - STA CallData"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[CallData]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
+                      name="CallTimestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]"
+                      name="Call Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
+                      name="CallDuration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
+                      name="WaitTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
+                      name="CallAbandoned"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CallTimestamp" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Type" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CallDuration" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WaitTime" />
+                    <externalMetadataColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CallAbandoned" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
+                      name="CallTimestamp" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
+                      name="Call Type" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
+                      name="CallDuration" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
+                      name="WaitTime" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
+                      name="CallAbandoned" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie d'erreur de conversion de données]"
+              endId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Inputs[Entrée de colonne dérivée]"
+              name="Sortie d'erreur de conversion de données"
+              startId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie d'erreur de conversion de données]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie d'erreur de conversion de données1]"
+              endId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Inputs[Entrée de colonne dérivée]"
+              name="Sortie d'erreur de conversion de données"
+              startId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie d'erreur de conversion de données]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée]"
+              endId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée1]"
+              endId="Package\ODS - Loading CallData\All_Reject.Inputs[Unir tout entrée 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER Reject_Details (WaitTime).Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée2]"
+              endId="Package\ODS - Loading CallData\All_Reject.Inputs[Entrée Union All 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER Reject_Details (CallDuration).Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée3]"
+              endId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée4]"
+              endId="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée5]"
+              endId="Package\ODS - Loading CallData\DCNV_Resizing.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de conversion de données]"
+              endId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Inputs[Entrée de conversion de données]"
+              name="Sortie de conversion de données"
+              startId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de conversion de données1]"
+              endId="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de conversion de données"
+              startId="Package\ODS - Loading CallData\DCNV WaitTime to INT.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de conversion de données2]"
+              endId="Package\ODS - Loading CallData\OLE_DST ODS CallData.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\ODS - Loading CallData\DCNV_Resizing.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Sortie de source OLE DB]"
+              endId="Package\ODS - Loading CallData\DCNV CallDuration to INT.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\ODS - Loading CallData.Paths[Unir tout sortie 1]"
+              endId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Unir tout sortie 1"
+              startId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Empty ODS CallData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{ED3C5041-DAF0-49A6-992F-15E1FBB78176}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Empty ODS CallData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{23578C33-6D1F-4BD0-9F9B-20E23AAC21BE}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE CALLDATA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{66D81355-3881-43B2-B3A1-EC0948192590}"
+      DTS:From="Package\SQL - Empty ODS CallData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\ODS - Loading CallData" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\ODS - Loading CallData"
+          TopLeft="295.833317169713,128.266665774716" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\SQL - Empty ODS CallData"
+          TopLeft="270.833318535653,26.8666664798392" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="373.633318535653,68.4666664798392">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.99999863406,59.7999992948768"
+              Start="0,0"
+              End="16.99999863406,52.2999992948768">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8999996474384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.8999996474384"
+                    Point2="0,29.8999996474384"
+                    Point3="4,29.8999996474384" />
+                  <mssgle:LineSegment
+                    End="12.99999863406,29.8999996474384" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.99999863406,29.8999996474384"
+                    Point2="16.99999863406,29.8999996474384"
+                    Point3="16.99999863406,33.8999996474384" />
+                  <mssgle:LineSegment
+                    End="16.99999863406,52.2999992948768" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ODS - Loading CallData">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\ODS - Loading CallData\DER_Add &quot;Year&quot;"
+          TopLeft="314.166649501357,465.199998734395" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\ODS - Loading CallData\OLE_DST ODS CallData"
+          TopLeft="339.099981559814,688.599996474385" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\ODS - Loading CallData\DCNV CallDuration to INT"
+          TopLeft="310.83331635015,136.599999150237" />
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\ODS - Loading CallData\OLE_SRC - STA CallData"
+          TopLeft="284.999984428287,47.6666663351986" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\ODS - Loading CallData\DER_Add &quot;Time&quot;"
+          TopLeft="305.833316623338,280.799998047352" />
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\ODS - Loading CallData\DER Reject_Details (WaitTime)"
+          TopLeft="604.166633656457,207.733334008323" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\ODS - Loading CallData\DCNV WaitTime to INT"
+          TopLeft="304.999983335535,205.133334026403" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\ODS - Loading CallData\DER_Add &quot;SLA_Status&quot;"
+          TopLeft="312.499982925753,544.66666429215" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\ODS - Loading CallData\DCNV_Resizing"
+          TopLeft="345.76664786223,615.799997848471" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\ODS - Loading CallData\Destination OLE DB"
+          TopLeft="1086.36661972387,179.599998951356" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\ODS - Loading CallData\DER_Add &quot;Date&quot;"
+          TopLeft="307.499983198942,378.933331404792" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\ODS - Loading CallData\DER Reject_Details (CallDuration)"
+          TopLeft="636.433303237128,141.000001139045" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\ODS - Loading CallData\All_Reject"
+          TopLeft="897.53329299258,184.799998915196" />
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de conversion de données]"
+          TopLeft="410.43331635015,178.199999150237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.633333014614,26.9333348761664"
+              Start="0,0"
+              End="-12.633333014614,19.4333348761664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.46666743808319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.46666743808319"
+                    Point2="0,13.4666674380832"
+                    Point3="-4,13.4666674380832" />
+                  <mssgle:LineSegment
+                    End="-8.63333301461404,13.4666674380832" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.63333301461404,13.4666674380832"
+                    Point2="-12.633333014614,13.4666674380832"
+                    Point3="-12.633333014614,17.4666674380832" />
+                  <mssgle:LineSegment
+                    End="-12.633333014614,19.4333348761664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée5]"
+          TopLeft="407.299982925753,586.26666429215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.266664936477,29.5333335563206"
+              Start="0,0"
+              End="15.266664936477,22.0333335563206">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.7666667781603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.7666667781603"
+                    Point2="0,14.7666667781603"
+                    Point3="4,14.7666667781603" />
+                  <mssgle:LineSegment
+                    End="11.266664936477,14.7666667781603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.266664936477,14.7666667781603"
+                    Point2="15.266664936477,14.7666667781603"
+                    Point3="15.266664936477,18.7666667781603" />
+                  <mssgle:LineSegment
+                    End="15.266664936477,22.0333335563206" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée4]"
+          TopLeft="389.23331635015,420.533331404792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.6666673296027"
+              Start="0,0"
+              End="0,37.1666673296027">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.1666673296027" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée3]"
+          TopLeft="392.566649501357,506.799998734395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.7333334243955,37.8666655577558"
+              Start="0,0"
+              End="14.7333334243955,30.3666655577558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9333327788779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9333327788779"
+                    Point2="0,18.9333327788779"
+                    Point3="4,18.9333327788779" />
+                  <mssgle:LineSegment
+                    End="10.7333334243955,18.9333327788779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.7333334243955,18.9333327788779"
+                    Point2="14.7333334243955,18.9333327788779"
+                    Point3="14.7333334243955,22.9333327788779" />
+                  <mssgle:LineSegment
+                    End="14.7333334243955,30.3666655577558" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée2]"
+          TopLeft="874.033303237128,161.800001139045">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.499989755452,38.1999977761508"
+              Start="0,0"
+              End="15.999989755452,38.1999977761508">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="9.57777185870562,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.57777185870562,0"
+                    Point2="13.5777718587056,0"
+                    Point3="13.5777718587056,4" />
+                  <mssgle:LineSegment
+                    End="13.5777718587056,34.1999977761508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5777718587056,34.1999977761508"
+                    Point2="13.5777718587056,38.1999977761508"
+                    Point3="17.5777718587056,38.1999977761508" />
+                  <mssgle:LineSegment
+                    End="15.999989755452,38.1999977761508" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée1]"
+          TopLeft="828.166633656457,228.533334008323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.3666593361232,-22.9333350931273"
+              Start="0,0"
+              End="61.8666593361232,-22.9333350931273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.6833296680616,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.6833296680616,0"
+                    Point2="34.6833296680616,0"
+                    Point3="34.6833296680616,-4" />
+                  <mssgle:LineSegment
+                    End="34.6833296680616,-18.9333350931273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6833296680616,-18.9333350931273"
+                    Point2="34.6833296680616,-22.9333350931273"
+                    Point3="38.6833296680616,-22.9333350931273" />
+                  <mssgle:LineSegment
+                    End="61.8666593361232,-22.9333350931273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de colonne dérivée]"
+          TopLeft="385.26664991114,322.399998047352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.53333335744"
+              Start="0,0"
+              End="0,49.03333335744">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.03333335744" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie d'erreur de conversion de données1]"
+          TopLeft="490.599983335536,227.233334017363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.566650320922,0"
+              Start="0,0"
+              End="106.066650320922,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="106.066650320922,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.474917027039,5,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie d'erreur de conversion de données]"
+          TopLeft="510.03331635015,159.600000144641">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.399986886979,0"
+              Start="0,0"
+              End="118.899986886979,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="118.899986886979,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.0582487440105,5,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Unir tout sortie 1]"
+          TopLeft="1023.13329299258,202.999998933276">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.2333267312914,0"
+              Start="0,0"
+              End="55.7333267312914,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.7333267312914,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de source OLE DB]"
+          TopLeft="384.599984428287,89.2666663351986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.8333319218623,47.3333328150379"
+              Start="0,0"
+              End="25.8333319218623,39.8333328150379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.666666407519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.666666407519"
+                    Point2="0,23.666666407519"
+                    Point3="4,23.666666407519" />
+                  <mssgle:LineSegment
+                    End="21.8333319218623,23.666666407519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.8333319218623,23.666666407519"
+                    Point2="25.8333319218623,23.666666407519"
+                    Point3="25.8333319218623,27.666666407519" />
+                  <mssgle:LineSegment
+                    End="25.8333319218623,39.8333328150379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de conversion de données2]"
+          TopLeft="422.56664786223,657.399997848471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.3333336975839,31.1999986259141"
+              Start="0,0"
+              End="13.3333336975839,23.6999986259141">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.599999312957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.599999312957"
+                    Point2="0,15.599999312957"
+                    Point3="4,15.599999312957" />
+                  <mssgle:LineSegment
+                    End="9.3333336975839,15.599999312957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.3333336975839,15.599999312957"
+                    Point2="13.3333336975839,15.599999312957"
+                    Point3="13.3333336975839,19.599999312957" />
+                  <mssgle:LineSegment
+                    End="13.3333336975839,23.6999986259141" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ODS - Loading CallData.Paths[Sortie de conversion de données1]"
+          TopLeft="397.799983335536,246.733334026403">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.1666667121979,34.066664020949"
+              Start="0,0"
+              End="-13.1666667121979,26.566664020949">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0333320104745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0333320104745"
+                    Point2="0,17.0333320104745"
+                    Point3="-4,17.0333320104745" />
+                  <mssgle:LineSegment
+                    End="-9.16666671219792,17.0333320104745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.16666671219792,17.0333320104745"
+                    Point2="-13.1666667121979,17.0333320104745"
+                    Point3="-13.1666667121979,21.0333320104745" />
+                  <mssgle:LineSegment
+                    End="-13.1666667121979,26.566664020949" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ODS - Loading CallData\OLE_DST ODS CallData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ODS - Loading CallData\OLE_SRC - STA CallData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ODS - Loading CallData\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

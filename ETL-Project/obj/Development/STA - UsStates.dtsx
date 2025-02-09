@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA - US STATE"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{5C4C4163-C52D-4165-8A65-599372C583B6}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{7B561DA1-7EA6-411D-AEC9-D1CBF8CB7CA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -106,11 +106,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls)"
+              refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls)"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
               description="Source Excel"
-              name="EF_SRC US States (xls)"
+              name="EX_SRC US States (xls)"
               usesDispositions="true"
               version="1">
               <properties>
@@ -147,7 +147,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Connections[OleDbConnection]"
+                  refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
                   connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -155,92 +155,92 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel]"
+                  refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel]"
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[StateCD]"
+                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[StateCD]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]"
                       name="StateCD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Name]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]"
                       name="Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Region]"
+                      externalMetadataColumnId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Region]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]"
                       name="Region"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[StateCD]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[StateCD]"
                       dataType="wstr"
                       length="255"
                       name="StateCD" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Name]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Name]"
                       dataType="wstr"
                       length="255"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Region]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].ExternalColumns[Region]"
                       dataType="wstr"
                       length="255"
                       name="Region" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel]"
+                  refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[StateCD]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[StateCD]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[StateCD]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[StateCD]"
                       name="StateCD" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Name]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Name]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Name]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Name]"
                       name="Name" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Region]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Region]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Region]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[Region]"
                       name="Region" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -326,21 +326,21 @@
                       cachedLength="255"
                       cachedName="StateCD"
                       externalMetadataColumnId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCD]"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]" />
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[StateCD]" />
                     <inputColumn
                       refId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB].Columns[Name]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Name"
                       externalMetadataColumnId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]" />
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Name]" />
                     <inputColumn
                       refId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB].Columns[Region]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Region"
                       externalMetadataColumnId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
-                      lineageId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]" />
+                      lineageId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel].Columns[Region]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -393,7 +393,7 @@
               refId="Package\DFT - Loading STA UsStates.Paths[Sortie de source Excel]"
               endId="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source Excel"
-              startId="Package\DFT - Loading STA UsStates\EF_SRC US States (xls).Outputs[Sortie de source Excel]" />
+              startId="Package\DFT - Loading STA UsStates\EX_SRC US States (xls).Outputs[Sortie de source Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -493,18 +493,18 @@
           Id="Package\DFT - Loading STA UsStates\OLE_DST - STA UsStates"
           TopLeft="193.333322770066,155.133332254556" />
         <NodeLayout
-          Size="191.2,41.6"
-          Id="Package\DFT - Loading STA UsStates\EF_SRC US States (xls)"
+          Size="192,41.6"
+          Id="Package\DFT - Loading STA UsStates\EX_SRC US States (xls)"
           TopLeft="150.833325092164,71.0666661724779" />
         <EdgeLayout
           Id="Package\DFT - Loading STA UsStates.Paths[Sortie de source Excel]"
-          TopLeft="246.433325092164,112.666666172478">
+          TopLeft="246.833325092164,112.666666172478">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.8999976779021,42.4666660820781"
+              EndConnector="46.499997677902,42.4666660820781"
               Start="0,0"
-              End="46.8999976779021,34.9666660820781">
+              End="46.499997677902,34.9666660820781">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -515,13 +515,13 @@
                     Point2="0,21.233333041039"
                     Point3="4,21.233333041039" />
                   <mssgle:LineSegment
-                    End="42.8999976779021,21.233333041039" />
+                    End="42.499997677902,21.233333041039" />
                   <mssgle:CubicBezierSegment
-                    Point1="42.8999976779021,21.233333041039"
-                    Point2="46.8999976779021,21.233333041039"
-                    Point3="46.8999976779021,25.233333041039" />
+                    Point1="42.499997677902,21.233333041039"
+                    Point2="46.499997677902,21.233333041039"
+                    Point3="46.499997677902,25.233333041039" />
                   <mssgle:LineSegment
-                    End="46.8999976779021,34.9666660820781" />
+                    End="46.499997677902,34.9666660820781" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -534,7 +534,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Loading STA UsStates\EF_SRC US States (xls)">
+    design-time-name="Package\DFT - Loading STA UsStates\EX_SRC US States (xls)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

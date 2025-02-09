@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{9EC54113-CCBA-47FA-838A-01AEF5601004}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{E3403254-4087-4B28-BD2D-9D83CA3B98BD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -70,11 +70,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls)"
+              refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls)"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
               description="Source Excel"
-              name="EF_SRC Lookup data (xls)"
+              name="EX_SRC Lookup data (xls)"
               usesDispositions="true"
               version="1">
               <properties>
@@ -111,7 +111,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Connections[OleDbConnection]"
+                  refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
                   connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -119,113 +119,113 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel]"
+                  refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel]"
                   name="Sortie de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeID]"
+                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeID]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]"
                       name="EmployeeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeName]"
+                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeName]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]"
                       name="EmployeeName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[Site]"
+                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[Site]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]"
                       name="Site"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[ManagerName]"
+                      externalMetadataColumnId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[ManagerName]"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]"
                       name="ManagerName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeID]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeID]"
                       dataType="wstr"
                       length="255"
                       name="EmployeeID" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[EmployeeName]"
                       dataType="wstr"
                       length="255"
                       name="EmployeeName" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[Site]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[Site]"
                       dataType="wstr"
                       length="255"
                       name="Site" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[ManagerName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].ExternalColumns[ManagerName]"
                       dataType="wstr"
                       length="255"
                       name="ManagerName" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel]"
+                  refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source Excel">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeID]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeID]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeID]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeID]"
                       name="EmployeeID" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeName]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[EmployeeName]"
                       name="EmployeeName" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[Site]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[Site]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[Site]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[Site]"
                       name="Site" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ManagerName]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ManagerName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ManagerName]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ManagerName]"
                       name="ManagerName" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      refId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -311,28 +311,28 @@
                       cachedLength="255"
                       cachedName="EmployeeID"
                       externalMetadataColumnId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]" />
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeID]" />
                     <inputColumn
                       refId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].Columns[EmployeeName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="EmployeeName"
                       externalMetadataColumnId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeName]"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]" />
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[EmployeeName]" />
                     <inputColumn
                       refId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].Columns[Site]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Site"
                       externalMetadataColumnId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[Site]"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]" />
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[Site]" />
                     <inputColumn
                       refId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].Columns[ManagerName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="ManagerName"
                       externalMetadataColumnId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[ManagerName]"
-                      lineageId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]" />
+                      lineageId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel].Columns[ManagerName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -390,7 +390,7 @@
               refId="Package\DFT - Loading STA Employees.Paths[Sortie de source Excel]"
               endId="Package\DFT - Loading STA Employees\OLE_DST - STA Employees.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source Excel"
-              startId="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls).Outputs[Sortie de source Excel]" />
+              startId="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls).Outputs[Sortie de source Excel]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -474,16 +474,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls)"
-          TopLeft="222.499987843137,135.199999059836" />
-        <NodeLayout
           Size="209.6,41.6"
           Id="Package\DFT - Loading STA Employees\OLE_DST - STA Employees"
           TopLeft="220.833321267532,241.799998318553" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls)"
+          TopLeft="222.499987843137,135.199999059836" />
         <EdgeLayout
           Id="Package\DFT - Loading STA Employees.Paths[Sortie de source Excel]"
-          TopLeft="324.466654555334,176.799999059836">
+          TopLeft="324.666654555335,176.799999059836">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -507,7 +507,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Loading STA Employees\OLE_DST - STA Employees">
+    design-time-name="Package\DFT - Loading STA Employees\EX_SRC Lookup data (xls)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -520,7 +520,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Loading STA Employees\EF_SRC Lookup data (xls)">
+    design-time-name="Package\DFT - Loading STA Employees\OLE_DST - STA Employees">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
