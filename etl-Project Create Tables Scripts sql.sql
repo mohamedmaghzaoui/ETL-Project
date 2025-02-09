@@ -197,3 +197,22 @@ FROM DimDate
 
 
 
+
+--ADM TechnicalRejects Table
+
+CREATE TABLE [TechnicalRejects] (
+    [RejectDate] datetime,
+    [RejectStep] nvarchar(255),
+    [RejectMessage] nvarchar(255),
+    [RejectColumn] nvarchar(255)
+)
+
+--ADM FunctionalRejects Table
+
+CREATE TABLE [FunctionalRejects] (
+    [COUNT ALL] numeric(20,0),
+    [RejectDate] datetime,
+    [RejectStep] nvarchar(255),
+    [RejectMessage] nvarchar(255),
+    [RejectColumn] nvarchar(255)
+)
