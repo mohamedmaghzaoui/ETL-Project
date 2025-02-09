@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="ODS - CallData"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{BEAD201A-5244-4C3A-BA0E-18916CA3F22A}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{BFCEDB3F-B8E6-41EB-B54F-402058E57760}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1523,11 +1523,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\ODS - Loading CallData\Destination OLE DB"
+              refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="Destination OLE DB"
+              name="OLE_DST - TechnicalRejects"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1580,7 +1580,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\ODS - Loading CallData\Destination OLE DB.Connections[OleDbConnection]"
+                  refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -1588,58 +1588,58 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectDate]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="RejectDate"
-                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
                       lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectDate]" />
                     <inputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectStep]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectStep]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="RejectStep"
-                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
                       lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectStep]" />
                     <inputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectMessage]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectMessage]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="RejectMessage"
-                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
                       lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectMessage]" />
                     <inputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[RejectColumn]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectColumn]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="RejectColumn"
-                      externalMetadataColumnId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      externalMetadataColumnId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
                       lineageId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1].Columns[RejectColumn]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
                       dataType="dbTimeStamp"
                       name="RejectDate" />
                     <externalMetadataColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
                       dataType="wstr"
                       length="255"
                       name="RejectStep" />
                     <externalMetadataColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
                       dataType="wstr"
                       length="255"
                       name="RejectMessage" />
                     <externalMetadataColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
                       dataType="wstr"
                       length="255"
                       name="RejectColumn" />
@@ -1648,22 +1648,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\ODS - Loading CallData\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2180,7 +2180,7 @@
               startId="Package\ODS - Loading CallData\OLE_SRC - STA CallData.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\ODS - Loading CallData.Paths[Unir tout sortie 1]"
-              endId="Package\ODS - Loading CallData\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              endId="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects.Inputs[Entrée de destination OLE DB]"
               name="Unir tout sortie 1"
               startId="Package\ODS - Loading CallData\All_Reject.Outputs[Unir tout sortie 1]" />
           </paths>
@@ -2314,8 +2314,8 @@
           Id="Package\ODS - Loading CallData\DCNV_Resizing"
           TopLeft="345.76664786223,615.799997848471" />
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\ODS - Loading CallData\Destination OLE DB"
+          Size="214.4,41.6"
+          Id="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects"
           TopLeft="1086.36661972387,179.599998951356" />
         <NodeLayout
           Size="156.8,41.6"
@@ -2597,14 +2597,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="63.2333267312914,0"
+              EndConnector="63.2333267312897,0"
               Start="0,0"
-              End="55.7333267312914,0">
+              End="55.7333267312897,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="55.7333267312914,0" />
+                    End="55.7333267312897,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2745,7 +2745,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\ODS - Loading CallData\Destination OLE DB">
+    design-time-name="Package\ODS - Loading CallData\OLE_DST - TechnicalRejects">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

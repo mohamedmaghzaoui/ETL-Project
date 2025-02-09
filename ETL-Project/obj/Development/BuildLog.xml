@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>ETL-Project</Name>
-    <LastWriteTime>2025-02-09T01:43:21.6343849Z</LastWriteTime>
+    <LastWriteTime>2025-02-09T15:44:47.8265195Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -68,7 +68,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH - F_CallData.dtsx</Name>
-      <LastWriteTime>2025-02-09T01:46:23.2571439Z</LastWriteTime>
+      <LastWriteTime>2025-02-09T15:44:47.6179301Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

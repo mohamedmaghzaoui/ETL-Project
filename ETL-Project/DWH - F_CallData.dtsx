@@ -11,11 +11,23 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="DWH - F_CallData"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{1180BCEC-BC84-45A4-8535-61CDBD9DA58D}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{379B30B8-3F5E-4DA5-8008-40818EAB706E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{920C6AC6-3F80-4A4F-B705-643F3DDB4F39}"
+      DTS:ObjectName=".\SQLEXPRESS.ETL_ADM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ETL_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DWH - F_CallData-{920C6AC6-3F80-4A4F-B705-643F3DDB4F39}.\SQLEXPRESS.ETL_ADM;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ODS]"
       DTS:CreationName="OLEDB"
@@ -57,6 +69,1130 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT Loading F_CallData\AGG"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Agrégation;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Agrège des données avec des fonctions telles que Moyenne, Somme, Nombre, Max.et Min. Par exemple, regroupez des données pour calculer la somme des ventes par produit ou la moyenne des visites par jour."
+              name="AGG"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre approximatif de valeurs distinctes totalisé distinctement par l'agrégation dans une colonne. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur CountDistinctScale n'est utilisée."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de valeurs distinctes totalisées distinctement par l'agrégation dans une colonne. Si une valeur CountDistinctScale est spécifiée, la valeur dans CountDistinctKeys est prioritaire."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage possible d'extension de la mémoire pendant l'agrégation. Les valeurs valides vont de 1 à 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1]"
+                  name="Entrée d'agrégation 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1]"
+                  name="Sortie d'agrégation 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[COUNT ALL]"
+                      dataType="ui8"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[COUNT ALL]"
+                      name="COUNT ALL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\DFT Loading F_CallData\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectDate]"
+                      name="RejectDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectStep]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectStep]"
+                      name="RejectStep">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectMessage]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectMessage]"
+                      name="RejectMessage">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectColumn]"
+                      name="RejectColumn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Loading F_CallData\All_Rejects"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="All_Rejects"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Time"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Year"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[CallDuration]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[WaitTime]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[SLAStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SLAStatus"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLAStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeKey"
+                      lineageId="Package\DFT Loading F_CallData\LKP D_Employees.Outputs[Sortie de recherche avec correspondance].Columns[EmployeeKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Time"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Year"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[CallDuration]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[WaitTime]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[SLAStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SLAStatus"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLAStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (Employees).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (Employees).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (Employees).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (Employees).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Time"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Year"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[CallDuration]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[WaitTime]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[SLAStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SLAStatus"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLAStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeKey"
+                      lineageId="Package\DFT Loading F_CallData\LKP D_Employees.Outputs[Sortie de recherche avec correspondance].Columns[EmployeeKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Time"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[Year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Year"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Year]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[CallType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CallType"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[CallDuration]"
+                      cachedDataType="i4"
+                      cachedName="CallDuration"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[WaitTime]"
+                      cachedDataType="i4"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[SLAStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SLAStatus"
+                      lineageId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLAStatus]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeKey"
+                      lineageId="Package\DFT Loading F_CallData\LKP D_Employees.Outputs[Sortie de recherche avec correspondance].Columns[EmployeeKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (DimDate).Outputs[Sortie de colonne dérivée].Columns[RejectDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (DimDate).Outputs[Sortie de colonne dérivée].Columns[RejectStep]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (DimDate).Outputs[Sortie de colonne dérivée].Columns[RejectMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT Loading F_CallData\DER Reject_Details (DimDate).Outputs[Sortie de colonne dérivée].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Time]"
+                      name="Time" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallType]"
+                      name="CallType" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      dataType="i4"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      name="CallDuration" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      dataType="i4"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      name="WaitTime" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      name="CallAbandoned" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[SLAStatus]"
+                      name="SLAStatus" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[EmployeeKey]"
+                      name="EmployeeKey" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectDate]"
+                      name="RejectDate" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectStep]"
+                      name="RejectStep" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectMessage]"
+                      name="RejectMessage" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1].Columns[RejectColumn]"
+                      name="RejectColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges)"
               componentClassID="Microsoft.DerivedColumn"
@@ -1319,6 +2455,166 @@ where [refTable].[EmployeeId] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE-DB FunctionalRejects"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[FunctionalRejects]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ETL_ADM]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].Columns[COUNT ALL]"
+                      cachedDataType="ui8"
+                      cachedName="COUNT ALL"
+                      externalMetadataColumnId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[COUNT ALL]"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[COUNT ALL]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectDate"
+                      externalMetadataColumnId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectDate]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectStep]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectStep"
+                      externalMetadataColumnId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectStep]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectMessage"
+                      externalMetadataColumnId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectMessage]" />
+                    <inputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RejectColumn"
+                      externalMetadataColumnId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      lineageId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1].Columns[RejectColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[COUNT ALL]"
+                      dataType="numeric"
+                      name="COUNT ALL"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectDate]"
+                      dataType="dbTimeStamp"
+                      name="RejectDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectStep]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectStep" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectMessage]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectMessage" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB].ExternalColumns[RejectColumn]"
+                      dataType="wstr"
+                      length="255"
+                      name="RejectColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT Loading F_CallData\OLE_DST - DWH CallData"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
@@ -1802,6 +3098,31 @@ where [refTable].[EmployeeId] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\DFT Loading F_CallData.Paths[Sortie d'agrégation 1]"
+              endId="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects.Inputs[Entrée de destination OLE DB]"
+              name="Sortie d'agrégation 1"
+              startId="Package\DFT Loading F_CallData\AGG.Outputs[Sortie d'agrégation 1]" />
+            <path
+              refId="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Unir tout entrée 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes).Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée1]"
+              endId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 1]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT Loading F_CallData\DER Reject_Details (Employees).Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée2]"
+              endId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 2]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges).Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée3]"
+              endId="Package\DFT Loading F_CallData\All_Rejects.Inputs[Entrée Union All 3]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT Loading F_CallData\DER Reject_Details (DimDate).Outputs[Sortie de colonne dérivée]" />
+            <path
               refId="Package\DFT Loading F_CallData.Paths[Sortie de recherche avec correspondance]"
               endId="Package\DFT Loading F_CallData\LKP D_CallTypes.Inputs[Entrée de recherche]"
               name="Sortie de recherche avec correspondance"
@@ -1846,6 +3167,11 @@ where [refTable].[EmployeeId] = ?</property>
               endId="Package\DFT Loading F_CallData\LKP D_Employees.Inputs[Entrée de recherche]"
               name="Sortie de source OLE DB"
               startId="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT Loading F_CallData.Paths[Unir tout sortie 1]"
+              endId="Package\DFT Loading F_CallData\AGG.Inputs[Entrée d'agrégation 1]"
+              name="Unir tout sortie 1"
+              startId="Package\DFT Loading F_CallData\All_Rejects.Outputs[Unir tout sortie 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1929,6 +3255,30 @@ where [refTable].[EmployeeId] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\DFT Loading F_CallData\LKP D_Employees"
+          TopLeft="324.166648954982,133.466665738556" />
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData"
+          TopLeft="294.166650594109,33.799999764959" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT Loading F_CallData\LKP D_CallCharges"
+          TopLeft="296.666650457515,322.399997758071" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\DFT Loading F_CallData\DER Reject_Details (DimDate)"
+          TopLeft="587.899969539544,407.533331205911" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges)"
+          TopLeft="591.666634339427,314.799998517434" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects"
+          TopLeft="1282.22217790507,276.370368448525" />
+        <NodeLayout
           Size="160.8,41.6"
           Id="Package\DFT Loading F_CallData\LKP D_CallTypes"
           TopLeft="318.333315940368,233.133331712153" />
@@ -1937,37 +3287,59 @@ where [refTable].[EmployeeId] = ?</property>
           Id="Package\DFT Loading F_CallData\OLE_DST - DWH CallData"
           TopLeft="303.333316759931,501.799996510545" />
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\DFT Loading F_CallData\LKP D_CallCharges"
-          TopLeft="296.666650457515,322.399997758071" />
-        <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData"
-          TopLeft="294.166650594109,33.799999764959" />
-        <NodeLayout
           Size="231.2,41.6"
           Id="Package\DFT Loading F_CallData\DER Reject_Details (Employees)"
-          TopLeft="602.499967080853,131.066666461759" />
-        <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\DFT Loading F_CallData\DER Reject_Details (DimDate)"
-          TopLeft="587.899969539544,407.533331205911" />
+          TopLeft="599.374967251596,128.899999810159" />
         <NodeLayout
           Size="226.4,41.6"
           Id="Package\DFT Loading F_CallData\DER Reject_Details (CallTypes)"
           TopLeft="604.199968037011,237.666665720476" />
         <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\DFT Loading F_CallData\LKP D_Employees"
-          TopLeft="324.166648954982,133.466665738556" />
-        <NodeLayout
-          Size="237.6,41.6"
-          Id="Package\DFT Loading F_CallData\DER Reject_Details (CallCharges)"
-          TopLeft="591.666634339427,314.799998517434" />
-        <NodeLayout
           Size="154.4,41.6"
           Id="Package\DFT Loading F_CallData\LKP D_DimDate"
           TopLeft="295.833317169713,407.333330500788" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\DFT Loading F_CallData\All_Rejects"
+          TopLeft="914.583283362705,262.166664843592" />
+        <NodeLayout
+          Size="101.6,41.6"
+          Id="Package\DFT Loading F_CallData\AGG"
+          TopLeft="1126.19041465814,274.857140945821" />
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Unir tout sortie 1]"
+          TopLeft="1044.98328336271,282.966664843592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.207131295439,12.6904761022282"
+              Start="0,0"
+              End="73.707131295439,12.6904761022282">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.6035656477195,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.6035656477195,0"
+                    Point2="40.6035656477195,0"
+                    Point3="40.6035656477195,4" />
+                  <mssgle:LineSegment
+                    End="40.6035656477195,8.69047610222816" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.6035656477195,8.69047610222816"
+                    Point2="40.6035656477195,12.6904761022282"
+                    Point3="44.6035656477195,12.6904761022282" />
+                  <mssgle:LineSegment
+                    End="73.707131295439,12.6904761022282" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT Loading F_CallData.Paths[Sortie de source OLE DB]"
           TopLeft="394.566650594109,75.399999764959">
@@ -2076,25 +3448,25 @@ where [refTable].[EmployeeId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT Loading F_CallData.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="489.766648954982,153.066666100158">
+          TopLeft="489.766648954982,151.983332774358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112.733318125871,0"
+              EndConnector="109.608318296614,0"
               Start="0,0"
-              End="105.233318125871,0">
+              End="102.108318296614,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="105.233318125871,0" />
+                    End="102.108318296614,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-38.8853526558144,5,183.0040234375,11.609375"
+              BoundingBox="-40.4478525704432,5,183.0040234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2242,11 +3614,169 @@ where [refTable].[EmployeeId] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée3]"
+          TopLeft="698.299969539544,407.533331205911">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="281.483313823161,-103.766666362319"
+              Start="0,0"
+              End="281.483313823161,-96.2666663623185">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-47.8833331811593" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-47.8833331811593"
+                    Point2="0,-51.8833331811593"
+                    Point3="4,-51.8833331811593" />
+                  <mssgle:LineSegment
+                    End="277.483313823161,-51.8833331811593" />
+                  <mssgle:CubicBezierSegment
+                    Point1="277.483313823161,-51.8833331811593"
+                    Point2="281.483313823161,-51.8833331811593"
+                    Point3="281.483313823161,-55.8833331811593" />
+                  <mssgle:LineSegment
+                    End="281.483313823161,-96.2666663623185" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée2]"
+          TopLeft="829.266634339427,335.599998517434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.3166490232784,-47.0333336738416"
+              Start="0,0"
+              End="77.8166490232784,-47.0333336738416">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.2940638801164,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.2940638801164,0"
+                    Point2="49.2940638801164,0"
+                    Point3="49.2940638801164,-4" />
+                  <mssgle:LineSegment
+                    End="49.2940638801164,-43.0333336738416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.2940638801164,-43.0333336738416"
+                    Point2="49.2940638801164,-47.0333336738416"
+                    Point3="53.2940638801164,-47.0333336738416" />
+                  <mssgle:LineSegment
+                    End="77.8166490232784,-47.0333336738416" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée1]"
+          TopLeft="714.974967251596,170.499999810159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="264.80831611111,91.6666650334334"
+              Start="0,0"
+              End="264.80831611111,84.1666650334334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.8333325167167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.8333325167167"
+                    Point2="0,45.8333325167167"
+                    Point3="4,45.8333325167167" />
+                  <mssgle:LineSegment
+                    End="260.80831611111,45.8333325167167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="260.80831611111,45.8333325167167"
+                    Point2="264.80831611111,45.8333325167167"
+                    Point3="264.80831611111,49.8333325167167" />
+                  <mssgle:LineSegment
+                    End="264.80831611111,84.1666650334334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Sortie de colonne dérivée]"
+          TopLeft="830.599968037011,258.466665720476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.9833153256944,24.4999991231165"
+              Start="0,0"
+              End="76.4833153256944,24.4999991231165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.9916576628472,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.9916576628472,0"
+                    Point2="41.9916576628472,0"
+                    Point3="41.9916576628472,4" />
+                  <mssgle:LineSegment
+                    End="41.9916576628472,20.4999991231165" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.9916576628472,20.4999991231165"
+                    Point2="41.9916576628472,24.4999991231165"
+                    Point3="45.9916576628472,24.4999991231165" />
+                  <mssgle:LineSegment
+                    End="76.4833153256944,24.4999991231165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Loading F_CallData.Paths[Sortie d'agrégation 1]"
+          TopLeft="1227.79041465814,296.413754697173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.4317632469301,0"
+              Start="0,0"
+              End="46.9317632469301,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.9317632469301,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Loading F_CallData\LKP D_CallTypes">
+    design-time-name="Package\DFT Loading F_CallData\LKP D_Employees">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2256,7 +3786,7 @@ where [refTable].[EmployeeId] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[CallTypes]</Value>
+          type="q3:string">[dbo].[Employees]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2269,7 +3799,7 @@ where [refTable].[EmployeeId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Loading F_CallData\OLE_DST - DWH CallData">
+    design-time-name="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2305,7 +3835,7 @@ where [refTable].[EmployeeId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Loading F_CallData\OLE_SRC - ODS CallData">
+    design-time-name="Package\DFT Loading F_CallData\OLE-DB FunctionalRejects">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2318,7 +3848,7 @@ where [refTable].[EmployeeId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT Loading F_CallData\LKP D_Employees">
+    design-time-name="Package\DFT Loading F_CallData\LKP D_CallTypes">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2328,7 +3858,7 @@ where [refTable].[EmployeeId] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Employees]</Value>
+          type="q3:string">[dbo].[CallTypes]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2337,6 +3867,19 @@ where [refTable].[EmployeeId] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Loading F_CallData\OLE_DST - DWH CallData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
